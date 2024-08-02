@@ -38,7 +38,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-solarized-dark)
+(setq doom-theme 'doom-tokyo-night)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -168,6 +168,11 @@
 )
 
 (use-package! olivetti
-  :hook ((prog-mode text-mode org-agenda-mode) . olivetti-mode)
   :hook (olivetti-mode . (lambda() (olivetti-set-width 150)))
+  :init
+  (add-hook 'prog-mode-hook #'olivetti-mode)
+  (add-hook 'text-mode-hook #'olivetti-mode)
   )
+
+(use-package! nix-mode
+  :mode "\\.nix\\'")

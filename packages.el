@@ -53,3 +53,5 @@
 (package! org-super-agenda)
 (package! olivetti)
 (package! auctex)
+(package! nix-mode)
+(package! pdf-tools)
