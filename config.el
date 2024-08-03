@@ -21,8 +21,8 @@
 (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 18 :weight 'medium))
 
 ;; Transparency
-;; (set-frame-parameter nil 'alpha-background 80)
-;; (add-to-list 'default-frame-alist '(alpha-background . 80))
+(set-frame-parameter nil 'alpha-background 80)
+(add-to-list 'default-frame-alist '(alpha-background . 80))
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
@@ -168,10 +168,9 @@
 )
 
 (use-package! olivetti
+  :hook (text-mode . olivetti-mode)
+  :hook (prog-mode . olivetti-mode)
   :hook (olivetti-mode . (lambda() (olivetti-set-width 150)))
-  :init
-  (add-hook 'prog-mode-hook #'olivetti-mode)
-  (add-hook 'text-mode-hook #'olivetti-mode)
   )
 
 (use-package! nix-mode
